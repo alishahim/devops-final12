@@ -6,8 +6,8 @@ provider "aws" {
 # Configure the Terraform backend (optional)
 terraform {
   backend "s3" {
-    bucket = "my-terraform-state"  
-    key    = "terraform/state"     
-    region = "us-east-1"           
+    bucket = "my-terraform-state"  # 
+    key    = "terraform/state"     #
+    region = "us-east-1"           # 
   }
 }
