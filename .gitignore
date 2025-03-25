@@ -24,3 +24,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .vscode/settings.json
+/terraform/.terraform
+/terraform/terraform.tfstate
+/terraform/terraform.lock.hcl
+**/terraform/*
+
+*.tfstate
+*.tfstate.*
