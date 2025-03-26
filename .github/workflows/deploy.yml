@@ -30,7 +30,7 @@ jobs:
       - name: Configure kubectl for EKS
       
         run: |
-          aws eks update-kubeconfig --region ${{ secrets.AWS_REGION }} --name my-eks-cluster
+          aws eks update-kubeconfig --region ${{ secrets.AWS_REGION }} --name new-eks-cluster
 
           kubectl get nodes
 
