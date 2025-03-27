@@ -20,8 +20,7 @@ spec:
         - containerPort: 80
         env:
           - name: REACT_APP_API_URL
-            value: "http://backend.default.svc.cluster.local:5000"
-
+            value: "http://backend.default.svc.cluster.local:5000"  # Убедись, что backend доступен в кластерной сети
 
 ---
 apiVersion: v1
@@ -29,11 +28,11 @@ kind: Service
 metadata:
   name: frontend
 spec:
-  type: LoadBalancer
+  type: LoadBalancer  # Для публичного доступа к сервису
   selector:
     app: frontend
   ports:
     - protocol: TCP
       port: 80
       targetPort: 80
-      nodePort: 30008  # Exposes frontend on Node's IP at port 30008
+      # nodePort не обязательно указывать при использовании LoadBalancer

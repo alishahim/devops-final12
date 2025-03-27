@@ -23,6 +23,7 @@ spec:
               value: "5000"
             - name: NODE_ENV
               value: "development"
+            - name: JWT_SECRET  # Здесь добавим просто переменную для секретного ключа
               valueFrom:
                 secretKeyRef:
                   name: jwt-secret
@@ -49,7 +50,7 @@ metadata:
   name: backend
   namespace: default
 spec:
-  type: ClusterIP  # Or LoadBalancer if needed
+  type: ClusterIP  # Или LoadBalancer, если нужно
   selector:
     app: backend
   ports:
