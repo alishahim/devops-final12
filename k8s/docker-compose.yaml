@@ -1,23 +1,20 @@
-version: '3.8'
+# Используем официальный образ Node.js версии 18
+FROM node:18
 
-services:
-  web:
-    image: nginx:latest
-    ports:
-      - "80:80"
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
-      - ./html:/usr/share/nginx/html
-    depends_on:
-      - app
+# Устанавливаем рабочую директорию
+WORKDIR /usr/src/app
 
-  app:
-    image: python:3.8
-    command: python /app/app.py
-    volumes:
-      - ./app:/app
-    environment:
-      - FLASK_APP=app.py
-      - FLASK_RUN_HOST=0.0.0.0
-    ports:
-      - "5000:5000"
+# Копируем package.json и package-lock.json в контейнер
+COPY package*.json ./
+
+# Устанавливаем зависимости
+RUN npm install
+
+# Копируем весь код приложения в контейнер
+COPY . .
+
+# Открываем порт 3000 для приложения
+EXPOSE 3000
+
+# Команда для запуска приложения
+CMD ["node", "app/index.js"]
