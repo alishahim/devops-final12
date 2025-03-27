@@ -15,7 +15,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: backend
-          image: alishahim/node-backend:latest
+          image: alishahim/deploy12:latest
           imagePullPolicy: Always
           workingDir: /app
           env:

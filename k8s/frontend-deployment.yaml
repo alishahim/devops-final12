@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: alishahim/react-frontend:latest
+        image: alishahim/react-new:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
