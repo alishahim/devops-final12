@@ -1,35 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
+  name: final-frontend
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: frontend
+      app: final-frontend
   template:
     metadata:
       labels:
-        app: frontend
+        app: final-frontend
     spec:
       containers:
       - name: frontend
         image: alishahim/proshop-frontend:latest
-        imagePullPolicy: Always
         ports:
         - containerPort: 80
-      
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend
+  name: frontend-service
 spec:
-  type: LoadBalancer  # Для публичного доступа к сервису
   selector:
-    app: frontend
+    app: final-frontend
   ports:
     - protocol: TCP
       port: 80
       targetPort: 80
-      # nodePort не обязательно указывать при использовании LoadBalancer
+  type: LoadBalancer  # Change to ClusterIP if not exposing externally
