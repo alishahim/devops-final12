@@ -15,7 +15,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: backend
-          image: alishahim/proshop-backend:latest
+          image: your-dockerhub-username/proshop-backend:latest
           imagePullPolicy: Always
           workingDir: /app
           env:

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: alishahim/proshop-frontend:latest
+        image: your-dockerhub-username/proshop-frontend:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
