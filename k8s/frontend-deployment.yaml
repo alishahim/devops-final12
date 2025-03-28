@@ -14,14 +14,11 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: your-dockerhub-username/proshop-frontend:latest
+        image: alishahim/proshop-frontend:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
-        env:
-          - name: REACT_APP_API_URL
-            value: "http://backend.default.svc.cluster.local:5000"  # Убедись, что backend доступен в кластерной сети
-
+      
 ---
 apiVersion: v1
 kind: Service
